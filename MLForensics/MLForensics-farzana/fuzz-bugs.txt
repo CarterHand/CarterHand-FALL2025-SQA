@@ -1,0 +1,11 @@
+=== FUZZ SUMMARY ===
+ERROR #1: safe_div -> TypeError("unsupported operand type(s) for /: 'str' and 'int'")
+ERROR #2: safe_div -> TypeError("unsupported operand type(s) for /: 'int' and 'str'")
+ERROR #3: safe_div -> TypeError("unsupported operand type(s) for /: 'str' and 'str'")
+ERROR #4: safe_div -> TypeError("unsupported operand type(s) for /: 'str' and 'int'")
+ERROR #5: safe_div -> ZeroDivisionError('division by zero')
+ERROR #6: safe_div -> TypeError("unsupported operand type(s) for /: 'str' and 'int'")
+ERROR #7: safe_div -> TypeError("unsupported operand type(s) for /: 'int' and 'str'")
+ERROR #8: safe_div -> TypeError("unsupported operand type(s) for /: 'str' and 'int'")
+ERROR #9: safe_div -> ZeroDivisionError('float division by zero')
+ERROR #10: safe_div -> TypeError("unsupported operand type(s) for /: 'int' and 'str'")

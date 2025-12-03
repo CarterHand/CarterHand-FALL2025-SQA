@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  fuzz-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps (if any)
+        run: |
+          if [ -f MLForensics/requirements.txt ]; then
+            pip install -r MLForensics/requirements.txt
+          fi
+
+      - name: Run fuzzing script
+        working-directory: MLForensics/MLForensics-farzana
+        run: |
+          python fuzz.py > fuzz-bugs-ci.txt || echo "fuzz.py exited with code $?"
+

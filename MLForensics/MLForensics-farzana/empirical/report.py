@@ -9,7 +9,9 @@ import pandas as pd
 import time 
 import datetime 
 import statistics
+import logging
 
+logger = logging.getLogger(__name__0
 
 def giveTimeStamp():
   tsObj = time.time()
@@ -17,9 +19,11 @@ def giveTimeStamp():
   return strToret
 
 def Average(Mylist): 
+    logger.info("Average() called with list length=%d", len(Mylist))
     return sum(Mylist) / len(Mylist)
     
 def Median(Mylist): 
+    logger.info("Median() called with list length=%d", len(Mylist))
     return statistics.median(Mylist)
     
 def reportProp( res_file ):

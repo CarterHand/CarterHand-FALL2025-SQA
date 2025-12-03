@@ -8,6 +8,9 @@ import subprocess
 import shutil
 from git import Repo
 from git import exc 
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def giveTimeStamp():
@@ -26,6 +29,7 @@ def deleteRepo(dirName, type_):
         
         
 def dumpContentIntoFile(strP, fileP):
+    logger.info("dumpContentIntoFile() writing to %r", fileP)
     fileToWrite = open( fileP, 'w')
     fileToWrite.write(strP )
     fileToWrite.close()
@@ -33,6 +37,7 @@ def dumpContentIntoFile(strP, fileP):
   
   
 def makeChunks(the_list, size_):
+    logger.info("makeChunks() called with len=%d, size_=%r", len(the_list), size_)
     for i in range(0, len(the_list), size_):
         yield the_list[i:i+size_]
         
@@ -68,6 +73,7 @@ def checkPythonFile(path2dir):
 def days_between(d1_, d2_): ## pass in date time objects, if string see commented code 
     # d1_ = datetime.strptime(d1_, "%Y-%m-%d")
     # d2_ = datetime.strptime(d2_, "%Y-%m-%d")
+    logger.info("days_between() called with d1_=%r, d2_=%r", d1_, d2_)
     return abs((d2_ - d1_).days)
     
     
